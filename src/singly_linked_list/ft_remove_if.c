@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 14:56:07 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/22 15:32:16 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/22 16:19:58 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,28 @@
 void	ft_remove_if(t_node **list, void *ref,
 			int (*cmp)(void *content, void *ref))
 {
-	t_node	*current;
+	t_node	*previous;
 	t_node	*tmp;
 
 	if (list == NULL || *list == NULL)
 		return ;
-	current = *list;
-	while (current != NULL)
+	while (*list && cmp((*list)->content, ref) == 0)
 	{
-		if (cmp(current -> content, ref) == 0)
+		tmp = *list;
+		*list = (*list)->next;
+		free(tmp->content);
+		free(tmp);
+	}
+	previous = *list;
+	while (previous)
+	{
+		while (previous->next && cmp(previous->next->content, ref) == 0)
 		{
-			tmp = current;
-			current = tmp -> next;
-			tmp -> next = NULL;
-			free(tmp -> content);
+			tmp = previous->next;
+			previous->next = tmp->next;
+			free(tmp->content);
 			free(tmp);
 		}
-		else
-			current = current -> next;
+		previous = previous->next;
 	}
 }
