@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:49:00 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/11/23 14:55:44 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/22 17:06:07 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ long	ft_atol(const char *s)
 	int		i;
 	int		negative;
 
+	if (s == NULL)
+		return (0);
 	n = 0;
 	i = 0;
 	while (ft_isspace(s[i]))
