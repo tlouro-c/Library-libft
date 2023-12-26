@@ -6,18 +6,18 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 15:52:34 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/23 12:54:54 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/26 17:17:34 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_free_str_arr(char **array, int size)
+char	**ft_free_str_arr(char **array)
 {
 	int	i;
 
 	i = 0;
-	while (i < size)
+	while (array[i])
 		free(array[i++]);
 	free(array);
 	return (NULL);

@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 00:51:39 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/24 14:36:23 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/26 21:19:03 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,26 @@
 # define FALSE 0
 # define TRUE 1
 
-typedef int	t_bool;
+typedef int				t_bool;
+typedef struct s_node	t_node;
+typedef struct s_list	t_list;
 
-typedef struct s_node
+struct s_node
 {
-	void			*content;
-	struct s_node	*next;
-}	t_node;
+	void	*value;
+	t_node	*next;
+};
+
+struct s_list
+{
+	t_node	*begin;
+	t_node	*end;
+	size_t	size;
+	t_node	*(*add)(t_list *this, void *value);
+	void	(*print)(t_list *this);
+	void	(*destroy)(t_list *this);
+	void	(*remove)(t_list *this, void *data_ref);
+};
 
 /* -------------------------------------------------------------------------- */
 /*                            FT_PRINTF_STRUCTURES                            */
@@ -182,7 +195,7 @@ char			*ft_substr(char const *s, unsigned int start, size_t len);
 /*                              "free" functions                              */
 /* -------------------------------------------------------------------------- */
 
-char			**ft_free_str_arr(char **array, int size);
+char			**ft_free_str_arr(char **array);
 char			*ft_free_str_return(char *s);
 
 /* -------------------------------------------------------------------------- */
@@ -206,17 +219,7 @@ void			*ft_memset(void *b, int c, size_t len);
 float			ft_rad(float deg);
 
 /* -------------------------------------------------------------------------- */
-/*                       "singly_linked_list" functions                       */
+/*                              "lists" functions                             */
 /* -------------------------------------------------------------------------- */
-
-t_node			*ft_insert_at_beginning(t_node **list, void *content);
-void			ft_print_list(t_node *list, char format_specifier);
-void			ft_remove_at_beggining(t_node **list);
-void			ft_remove_if(t_node **list, void *ref,
-					int (*cmp)(void *content, void *ref));
-int				ft_exists_in_list(t_node **list, void *ref,
-					int (*cmp)(void *content, void *ref));
-size_t			ft_list_size(t_node *list);
-void			ft_clear_list(t_node **list);
 
 #endif /* LIBFT_H */
