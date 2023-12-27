@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   __print.c                                          :+:      :+:    :+:   */
+/*   innit_node.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 23:32:16 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/27 16:12:26 by tlouro-c         ###   ########.fr       */
+/*   Created: 2023/12/27 16:04:03 by tlouro-c          #+#    #+#             */
+/*   Updated: 2023/12/27 16:15:19 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	__print(t_list *this, char specifier)
+t_node	*node_innit(void)
 {
-	t_node	*tmp;
+	t_node	*new_node;
 
-	tmp = this -> begin;
-	while (tmp)
-	{
-		tmp -> print(tmp, specifier);
-		tmp = tmp -> next;
-	}
+	new_node = (t_node *)ft_calloc(1, sizeof(t_node));
+	if (!new_node)
+		return (NULL);
+	new_node -> destroy = __destroy_node;
+	new_node -> print = __print_node;
+	return (new_node);
 }

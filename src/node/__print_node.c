@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   __print.c                                          :+:      :+:    :+:   */
+/*   __print_node.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 23:32:16 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/27 16:12:26 by tlouro-c         ###   ########.fr       */
+/*   Created: 2023/12/27 16:09:54 by tlouro-c          #+#    #+#             */
+/*   Updated: 2023/12/27 16:15:43 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	__print(t_list *this, char specifier)
+void	__print_node(t_node *this, char specifier)
 {
-	t_node	*tmp;
-
-	tmp = this -> begin;
-	while (tmp)
+	if (specifier != 'i' && specifier != 'd' && specifier != 's')
 	{
-		tmp -> print(tmp, specifier);
-		tmp = tmp -> next;
+		ft_putstr_fd("Invalid specifier in the print function\n", 2);
+		return ;
 	}
+	if (specifier == 'i' || specifier == 'd')
+		ft_printf("%i\n", (int *)this -> value);
+	else 
+		ft_printf("%s\n", (char *)this -> value);
 }

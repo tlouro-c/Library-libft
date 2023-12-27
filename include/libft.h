@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 00:51:39 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/27 00:11:26 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:47:02 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ struct s_node
 {
 	void	*value;
 	t_node	*next;
+	void	(*destroy)(t_node *this);
+	void	(*print)(t_node *this, char specifier);
 };
 
 struct s_list
@@ -51,7 +53,10 @@ struct s_list
 	t_node	*(*add)(t_list *this, void *value);
 	void	(*print)(t_list *this, char specifier);
 	void	(*destroy)(t_list *this);
-	void	(*remove)(t_list *this, void *data_ref);
+	void	(*removeif)(t_list *this, void *data_ref,
+			int (*cmp)(void *value, void *data_ref));
+	void	(*replace)(t_list *this, void *data_ref, void *new_value,
+			int (*cmp)(void *value, void *data_ref));
 	void	**(*toarray)(t_list *this);
 };
 
@@ -64,7 +69,10 @@ struct s_list_private
 	t_node	*(*add)(t_list *this, void *value);
 	void	(*print)(t_list *this, char specifier);
 	void	(*destroy)(t_list *this);
-	void	(*remove)(t_list *this, void *data_ref);
+	void	(*removeif)(t_list *this, void *data_ref,
+			int (*cmp)(void *value, void *data_ref));
+	void	(*replace)(t_list *this, void *data_ref, void *new_value,
+			int (*cmp)(void *value, void *data_ref));
 	void	**(*toarray)(t_list *this);
 	size_t	needs_update;
 };
@@ -244,5 +252,17 @@ t_node			*__add(t_list *this, void *value);
 void			__print(t_list *this, char specifier);
 void			__destroy(t_list *this);
 void			**__toarray(t_list *this);
+void			__removeif(t_list *this, void *data_ref,
+					int (*cmp)(void *value, void *data_ref));
+void			__replace(t_list *this, void *data_ref, void *new_value,
+					int (*cmp)(void *value, void *data_ref));
+
+/* -------------------------------------------------------------------------- */
+/*                              "node" functions                              */
+/* -------------------------------------------------------------------------- */
+
+t_node			*node_innit(void);
+void			__destroy_node(t_node *this);
+void			__print_node(t_node *this, char specifier);
 
 #endif /* LIBFT_H */
