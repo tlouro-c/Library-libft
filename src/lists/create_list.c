@@ -6,13 +6,13 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 22:54:23 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/27 00:01:41 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/27 00:21:59 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *list_innit(void)
+t_list	*list_innit(void)
 {
 	t_list	*new_list;
 

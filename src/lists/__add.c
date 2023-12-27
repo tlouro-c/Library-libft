@@ -6,13 +6,13 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 23:22:59 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/27 00:18:38 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/27 00:21:35 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_node *__add(t_list *this, void *value)
+t_node	*__add(t_list *this, void *value)
 {
 	t_node	*new;
 
@@ -26,6 +26,6 @@ t_node *__add(t_list *this, void *value)
 		this -> end -> next = new;
 	this -> end = new;
 	this -> size++;
-	((t_list_private *)this) -> needs_update = 1;
+	((t_list_private *)this)-> needs_update = 1;
 	return (new);
 }
