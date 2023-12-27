@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_list.c                                      :+:      :+:    :+:   */
+/*   __remove.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 22:54:23 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/27 00:01:41 by tlouro-c         ###   ########.fr       */
+/*   Created: 2023/12/27 00:01:58 by tlouro-c          #+#    #+#             */
+/*   Updated: 2023/12/27 00:07:31 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+// #include "libft.h"
 
-t_list *list_innit(void)
-{
-	t_list	*new_list;
-
-	new_list = (t_list *)ft_calloc(1, sizeof(t_list_private));
-	if (!new_list)
-		return (NULL);
-	new_list -> add = __add;
-	new_list -> print = __print;
-	new_list -> destroy = __destroy;
-	new_list -> toarray = __toarray;
-	return (new_list);
-}
+// void	__remove(t_list *this, void *data_ref)
+// {
+	
+// }

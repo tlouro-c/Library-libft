@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 00:51:39 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/26 23:41:02 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/27 00:11:26 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,12 @@ struct s_list
 	t_node	*begin;
 	t_node	*end;
 	size_t	size;
-	char	**arr;
+	void	**arr;
 	t_node	*(*add)(t_list *this, void *value);
 	void	(*print)(t_list *this, char specifier);
 	void	(*destroy)(t_list *this);
 	void	(*remove)(t_list *this, void *data_ref);
-	char	**(*toarray)(t_list *this);
+	void	**(*toarray)(t_list *this);
 };
 
 struct s_list_private
@@ -60,12 +60,12 @@ struct s_list_private
 	t_node	*begin;
 	t_node	*end;
 	size_t	size;
-	char	**arr;
+	void	**arr;
 	t_node	*(*add)(t_list *this, void *value);
 	void	(*print)(t_list *this, char specifier);
 	void	(*destroy)(t_list *this);
 	void	(*remove)(t_list *this, void *data_ref);
-	char	**(*toarray)(t_list *this);
+	void	**(*toarray)(t_list *this);
 	size_t	needs_update;
 };
 
@@ -212,7 +212,7 @@ char			*ft_substr(char const *s, unsigned int start, size_t len);
 /*                              "free" functions                              */
 /* -------------------------------------------------------------------------- */
 
-char			**ft_free_str_arr(char **array);
+void			**ft_free_arr(void **array);
 char			*ft_free_str_return(char *s);
 
 /* -------------------------------------------------------------------------- */
@@ -242,5 +242,7 @@ float			ft_rad(float deg);
 t_list			*list_innit(void);
 t_node			*__add(t_list *this, void *value);
 void			__print(t_list *this, char specifier);
+void			__destroy(t_list *this);
+void			**__toarray(t_list *this);
 
 #endif /* LIBFT_H */

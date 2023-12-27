@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 23:22:59 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/26 23:35:11 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/27 00:18:38 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ t_node *__add(t_list *this, void *value)
 	if (this -> begin == NULL)
 		this -> begin = new;
 	else
-		this -> end = new;
-	new -> next = NULL; 
+		this -> end -> next = new;
+	this -> end = new;
 	this -> size++;
 	((t_list_private *)this) -> needs_update = 1;
 	return (new);
