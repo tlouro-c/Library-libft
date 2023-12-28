@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   innit_list.c                                       :+:      :+:    :+:   */
+/*   new_node.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 22:54:23 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/27 16:44:07 by tlouro-c         ###   ########.fr       */
+/*   Created: 2023/12/27 16:04:03 by tlouro-c          #+#    #+#             */
+/*   Updated: 2023/12/28 17:30:52 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*list_innit(void)
+t_node	*new_node(void)
 {
-	t_list	*new_list;
+	t_node	*new_node;
 
-	new_list = (t_list *)ft_calloc(1, sizeof(t_list_private));
-	if (!new_list)
+	new_node = (t_node *)ft_calloc(1, sizeof(t_node));
+	if (!new_node)
 		return (NULL);
-	new_list -> add = __add;
-	new_list -> print = __print;
-	new_list -> destroy = __destroy;
-	new_list -> toarray = __toarray;
-	new_list -> removeif = __removeif;
-	new_list -> replace = __replace;
-	return (new_list);
+	new_node -> destroy = __destroy_node;
+	new_node -> print = __print_node;
+	return (new_node);
 }

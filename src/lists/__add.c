@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 23:22:59 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/27 16:15:03 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/28 17:31:52 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_node	*__add(t_list *this, void *value)
 {
 	t_node	*new;
 
-	new = node_innit();
+	new = new_node();
 	if (!new)
 		return (NULL);
 	new -> value = value;
