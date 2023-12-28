@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 00:51:39 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/28 17:31:11 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/28 18:13:47 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,6 +171,7 @@ int				ft_islower(int c);
 int				ft_isupper(int c);
 int				ft_isspace(int c);
 int				ft_isspace(int c);
+int				ft_isalphanum(int c);
 
 /* -------------------------------------------------------------------------- */
 /*                               "to" functions                               */
