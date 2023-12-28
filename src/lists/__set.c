@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   __replace_value.c                                  :+:      :+:    :+:   */
+/*   __set.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 16:37:24 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/27 16:47:49 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/28 18:09:07 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	__replace(t_list *this, void *data_ref, void *new_value,
+void	__set(t_list *this, void *data_ref, void *new_value,
 			int (*cmp)(void *value, void *data_ref))
 {
 	t_node	*tmp;
