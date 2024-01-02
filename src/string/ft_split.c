@@ -6,13 +6,13 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 16:12:15 by tlouro-c          #+#    #+#             */
-/*   Updated: 2024/01/01 20:37:32 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2024/01/01 20:41:58 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*mod_strdup(char const *s, char *sep)
+char	*mod_strdup(char const *s, char *sep)
 {
 	char	*s2;
 	int		i;

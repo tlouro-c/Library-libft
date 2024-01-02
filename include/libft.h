@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 00:51:39 by tlouro-c          #+#    #+#             */
-/*   Updated: 2024/01/01 20:37:47 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2024/01/02 12:24:03 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,6 +208,7 @@ char			*ft_strrev(char *s);
 char			*ft_strrchr(const char *s, int c);
 int				ft_count_words(char const *s, char *sep);
 char			**ft_split(char const *s, char *sep);
+char			*mod_strdup(char const *s, char *sep);
 int				ft_putstr_fd(char *s, int fd);
 int				ft_putchar_fd(int c, int fd);
 char			*ft_strjoin(char const *s1, char const *s2);
@@ -264,7 +265,6 @@ void			__set(t_list *this, void *data_ref, void *new_value,
 /*                              "node" functions                              */
 /* -------------------------------------------------------------------------- */
 
-t_node			*new_node(void);
 void			__destroy_node(t_node *this);
 void			__print_node(t_node *this, char specifier);
 
