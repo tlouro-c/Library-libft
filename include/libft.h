@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 00:51:39 by tlouro-c          #+#    #+#             */
-/*   Updated: 2024/01/06 12:30:56 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2024/01/06 12:45:08 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,6 +187,7 @@ int				ft_toupper(int c);
 
 unsigned int	ft_rand(void);
 void			ft_swap(int *a, int *b);
+void			ft_swap_str(char **a, char **b);
 int				ft_abs(int n);
 char			*ft_itoa(int value, char *buffer, int base);
 int				ft_atoi(const char *s);
