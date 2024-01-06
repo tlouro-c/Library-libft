@@ -7,12 +7,8 @@ INCLUDE_DIR = ./include
 SRC_DIR = ./src
 OBJ_DIR = ./obj
 
-OCEAN_COLOR = "\033[1;36m" # Cyan
-
-# Function to echo a formatted message with color
-define echo_message
-	@echo "$(2)$1\033[0m $3"
-endef
+CYAN = \033[1;36m
+RESET = \033[0m # Reset
 
 # Recursively find all .c files in SRC_DIR and its subdirectories
 SRC = $(wildcard $(SRC_DIR)/*.c) $(wildcard $(SRC_DIR)/*/*.c)
@@ -21,9 +17,9 @@ OBJ = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(call echo_message,"Building...", "$(OCEAN_COLOR)")
+	@echo "$(CYAN)Building..."
 	@ar -rcs $@ $^
-	$(call echo_message,"Library", "$(OCEAN_COLOR)", "created successfully!")
+	@echo "Library created successfully!"
 
 $(OBJ): | $(OBJ_DIR)
 
@@ -32,18 +28,19 @@ $(OBJ_DIR):
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(@D)
-	$(call echo_message,"Compiling", "$(OCEAN_COLOR)", "$<")
+	@echo "$(CYAN)Compiling $(RESET)$<"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(call echo_message,"Cleaning", "$(OCEAN_COLOR)", "up...")
+	@echo "$(CYAN)Cleaning..."
 	@rm -rf $(OBJ_DIR)
-	$(call echo_message,"Clean", "$(OCEAN_COLOR)", "complete.")
+	@echo "Clean complete!"
+
 
 fclean: clean
-	$(call echo_message,"Removing", "$(OCEAN_COLOR)", "$(NAME)...")
+	@echo "$(CYAN)Removing $(NAME)$(RESET)"
 	@rm -f $(NAME)
-	$(call echo_message,"Remove", "$(OCEAN_COLOR)", "complete.")
+	@echo "$(CYAN)Removing complete!$(RESET)"
 
 re: fclean all
 
