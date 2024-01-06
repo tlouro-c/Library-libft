@@ -8,6 +8,7 @@ SRC_DIR = ./src
 OBJ_DIR = ./obj
 
 CYAN = \033[1;36m
+UNDERLINE_CYAN = \033[4;36m
 RESET = \033[0m # Reset
 
 # Recursively find all .c files in SRC_DIR and its subdirectories
@@ -28,7 +29,7 @@ $(OBJ_DIR):
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(@D)
-	@echo "$(CYAN)Compiling $(RESET)$<"
+	@echo "$(CYAN)Compiling $(UNDERLINE_CYAN)$<$(RESET)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
@@ -38,7 +39,7 @@ clean:
 
 
 fclean: clean
-	@echo "$(CYAN)Removing $(NAME)$(RESET)"
+	@echo "$(CYAN)Removing \033[9m$(NAME)$(RESET)"
 	@rm -f $(NAME)
 	@echo "$(CYAN)Removing complete!$(RESET)"
 
