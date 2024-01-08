@@ -6,13 +6,13 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 19:58:07 by tlouro-c          #+#    #+#             */
-/*   Updated: 2024/01/08 19:59:32 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2024/01/08 20:03:27 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strshrinker(char *str, char *set)
+char	*ft_strshrinker(char *str, char *set, int to_free)
 {
 	char	*new;
 	int		i;
@@ -33,6 +33,7 @@ char	*ft_strshrinker(char *str, char *set)
 		i++;
 	}
 	new[j] = '\0';
+	if (to_free)
+		free(str);
 	return (new);
-
 }
